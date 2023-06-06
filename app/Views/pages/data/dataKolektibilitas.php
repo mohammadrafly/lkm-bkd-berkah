@@ -48,7 +48,9 @@
                                 <span class="badge badge-primary"><?= $data['waktu'] ?></span>    
                             </td>
                             <td>
+                                <?php if(session()->get('role') != 'admin'): ?>
                                 <button class="btn btn-primary" onclick="updateItem(<?= $data['id'] ?>)">Update</button>
+                                <?php endif ?>
                                 <button class="btn btn-danger" onclick="deleteItem(<?= $data['id'] ?>)">Delete</button>
                             </td>
                           </tr>

@@ -46,7 +46,9 @@
                   <td><?= $data['nama_cabang'] ?></td>
                   <td><?= $data['dana'] ? number_to_currency($data['dana'], 'IDR') : 'IDR 0' ?></td>
                   <td>
-                    <button class="btn btn-primary" onclick="updateItem(<?= $data['id'] ?>)">Update</button>
+                  <?php if(session()->get('role') != 'admin'): ?>
+                                <button class="btn btn-primary" onclick="updateItem(<?= $data['id'] ?>)">Update</button>
+                                <?php endif ?>
                     <button class="btn btn-danger" onclick="deleteItem(<?= $data['id'] ?>)">Delete</button>
                   </td>
                 </tr>
