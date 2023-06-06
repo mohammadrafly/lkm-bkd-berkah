@@ -38,7 +38,7 @@
                             <td><?= $data['name'] ?></td>
                             <td><?= $data['nama_akun'] ?></td>
                             <td><?= $data['nama_cabang'] ?></td>
-                            <td><?= number_to_currency($data['dana'], 'IDR') ?></td>
+                            <td><?= $data['dana'] ? number_to_currency($data['dana'], 'IDR') : 'IDR 0' ?></td>
                             <td>
                                 <button class="btn btn-primary" onclick="updateItem(<?= $data['id'] ?>)">Update</button>
                                 <button class="btn btn-danger" onclick="deleteItem(<?= $data['id'] ?>)">Delete</button>

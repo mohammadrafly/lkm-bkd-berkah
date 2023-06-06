@@ -40,7 +40,7 @@
                             <td><?= $data['name'] ?></td>
                             <td><?= $data['nama_cabang'] ?></td>
                             <td><?= $data['nasabah'] ?> Orang</td>
-                            <td><?= number_to_currency($data['dana'], 'IDR') ?></td>
+                            <td><?= $data['dana'] ? number_to_currency($data['dana'], 'IDR') : 'IDR 0' ?></td>
                             <td>   
                                 <span class="badge badge-success"><?= $data['kategori'] ?></span>
                             </td>
