@@ -11,6 +11,7 @@ class POS2Controller extends BaseController
 {
     public function index()
     {
+        helper('number');
         $model = new POS2();
         $modelCabang = new Cabang();
         $modelAkun = new Akun();
@@ -26,9 +27,9 @@ class POS2Controller extends BaseController
 
         $data = [
             'author' => session()->get('id'),
-            'kategori' => $this->request->getVar('kategori'),
             'kode_akun' => $this->request->getVar('kode_akun'),
             'cabang' => $this->request->getVar('cabang'),
+            'dana' => $this->request->getVar('dana'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
@@ -58,9 +59,9 @@ class POS2Controller extends BaseController
         }
 
         $data = [
-            'kategori' => $this->request->getVar('kategori'),
             'kode_akun' => $this->request->getVar('kode_akun'),
             'cabang' => $this->request->getVar('cabang'),
+            'dana' => $this->request->getVar('dana'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
         

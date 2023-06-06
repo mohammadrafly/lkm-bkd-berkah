@@ -49,6 +49,14 @@ class POS2 extends Model
     function getAllAssociateData() 
     {
         return $this->db->table('pos2')
+            ->select('
+                pos2.*,
+                cabang.nama_cabang as nama_cabang,
+                cabang.kode_cabang as kode_cabang,
+                akun.nama_akun as nama_akun,
+                akun.kode_akun as kode_akun,
+                users.name as name
+            ')
             ->join('akun', 'pos2.kode_akun = akun.kode_akun')
             ->join('cabang', 'pos2.cabang = cabang.kode_cabang')
             ->join('users', 'pos2.author = users.id')

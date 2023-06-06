@@ -8,9 +8,11 @@
                 <div class="card-header">
                     <h4>DataTables</h4>
                     <div class="card-header-action">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            Tambah Data
-                        </button>
+                        <?php if (session()->get('role') != 'admin'): ?>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                Tambah Data
+                            </button>
+                        <?php endif ?>
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#rangeDate">
                             Export Laporan
                         </button>

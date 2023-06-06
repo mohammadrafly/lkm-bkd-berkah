@@ -11,6 +11,10 @@
         <div class="modal-body">
           <input name="id" id="id" hidden>
           <div class="form-group">
+            <label>Dana</label>
+            <input type="number" name="dana" id="dana" class="form-control">
+          </div>
+          <div class="form-group">
             <label>Akun</label>
             <select name="kode_akun" id="kode_akun" class="form-control">
                   <option>Pilih Akun</option>

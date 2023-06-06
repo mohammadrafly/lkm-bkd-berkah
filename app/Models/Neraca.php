@@ -50,6 +50,14 @@ class Neraca extends Model
     function getAllAssociateData() 
     {
         return $this->db->table('neraca')
+            ->select('
+                neraca.*,
+                cabang.nama_cabang as nama_cabang,
+                cabang.kode_cabang as kode_cabang,
+                akun.nama_akun as nama_akun,
+                akun.kode_akun as kode_akun,
+                users.name as name
+            ')
             ->join('akun', 'neraca.kode_akun = akun.kode_akun')
             ->join('cabang', 'neraca.cabang = cabang.kode_cabang')
             ->join('users', 'neraca.author = users.id')

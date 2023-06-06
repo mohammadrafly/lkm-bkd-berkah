@@ -21,6 +21,12 @@ class Users extends Seeder
                 'role' => 'employee',
                 'password' => password_hash('employee', PASSWORD_DEFAULT)
             ],
+            [
+                'name' => 'superadmin',
+                'email' => 'superadmin@gmail.com',
+                'role' => 'superadmin',
+                'password' => password_hash('superadmin', PASSWORD_DEFAULT)
+            ],
         ];
 
         $this->db->table('users')->insertBatch($data);

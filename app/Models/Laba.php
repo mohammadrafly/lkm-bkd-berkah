@@ -50,6 +50,14 @@ class Laba extends Model
     function getAllAssociateData() 
     {
         return $this->db->table('laba')
+            ->select('
+                laba.*,
+                cabang.nama_cabang as nama_cabang,
+                cabang.kode_cabang as kode_cabang,
+                akun.nama_akun as nama_akun,
+                akun.kode_akun as kode_akun,
+                users.name as name
+            ')
             ->join('akun', 'laba.kode_akun = akun.kode_akun')
             ->join('cabang', 'laba.cabang = cabang.kode_cabang')
             ->join('users', 'laba.author = users.id')

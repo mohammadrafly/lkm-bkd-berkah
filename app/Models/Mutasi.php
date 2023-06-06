@@ -51,6 +51,12 @@ class Mutasi extends Model
     function getAllAssociateData() 
     {
         return $this->db->table('mutasi')
+            ->select('
+                mutasi.*,
+                cabang.nama_cabang as nama_cabang,
+                cabang.kode_cabang as kode_cabang,
+                users.name as name
+            ')
             ->join('cabang', 'mutasi.cabang = cabang.kode_cabang')
             ->join('users', 'mutasi.author = users.id')
             ->get()

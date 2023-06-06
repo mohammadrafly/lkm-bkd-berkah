@@ -8,9 +8,11 @@
                 <div class="card-header">
                     <h4>DataTables</h4>
                     <div class="card-header-action">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            Tambah Data
-                        </button>
+                        <?php if (session()->get('role') != 'employee'): ?>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                Tambah Data
+                            </button>
+                        <?php endif ?>
                     </div>
                 </div>
                 <?= $this->include('pages/partials/modalUser') ?>
@@ -23,7 +25,9 @@
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <?php if (session()->get('role') != 'employee'): ?>
                             <th>Action</th>
+                            <?php endif ?>
                           </tr>
                         </thead>
                         <tbody>
@@ -35,10 +39,12 @@
                             <td><?= $data['name'] ?></td>
                             <td><?= $data['email'] ?></td>
                             <td><span class="badge badge-success"><?= $data['role'] ?></span></td>
+                            <?php if (session()->get('role') != 'employee'): ?>
                             <td>
                                 <button class="btn btn-primary" onclick="updateItem(<?= $data['id'] ?>)">Update</button>
                                 <button class="btn btn-danger" onclick="deleteItem(<?= $data['id'] ?>)">Delete</button>
                             </td>
+                            <?php endif ?>
                           </tr>
                         <?php endforeach ?>
                         </tbody>

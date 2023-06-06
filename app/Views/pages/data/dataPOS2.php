@@ -38,7 +38,7 @@
                             <td><?= $data['name'] ?></td>
                             <td><?= $data['nama_akun'] ?></td>
                             <td><?= $data['nama_cabang'] ?></td>
-                            <td><?= $data['dana'] ?></td>
+                            <td><?= number_to_currency($data['dana'], 'IDR') ?></td>
                             <td>
                                 <button class="btn btn-primary" onclick="updateItem(<?= $data['id'] ?>)">Update</button>
                                 <button class="btn btn-danger" onclick="deleteItem(<?= $data['id'] ?>)">Delete</button>
@@ -83,9 +83,9 @@ function updateItem(id) {
     success: function(respond) {
       $('#id').val(respond.id);
       $('#author').val(respond.author);
-      $('#kategori').val(respond.kategori);
       $('#kode_akun').val(respond.kode_akun);
       $('#cabang').val(respond.cabang);
+      $('#dana').val(respond.dana);
       $('#myModal').modal({
         backdrop: false
       });

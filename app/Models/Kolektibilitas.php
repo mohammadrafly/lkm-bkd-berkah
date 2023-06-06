@@ -51,6 +51,12 @@ class Kolektibilitas extends Model
     function getAllAssociateData() 
     {
         return $this->db->table('kolektibilitas')
+            ->select('
+                kolektibilitas.*,
+                cabang.nama_cabang as nama_cabang,
+                cabang.kode_cabang as kode_cabang,
+                users.name as name
+            ')
             ->join('cabang', 'kolektibilitas.cabang = cabang.kode_cabang')
             ->join('users', 'kolektibilitas.author = users.id')
             ->get()

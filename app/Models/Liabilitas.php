@@ -53,6 +53,7 @@ class Liabilitas extends Model
             ->select('
                 liabilitas.*,
                 cabang.nama_cabang as nama_cabang,
+                cabang.kode_cabang as kode_cabang,
                 users.name as name
             ')
             ->join('cabang', 'liabilitas.cabang = cabang.kode_cabang')
